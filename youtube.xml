@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="YouTube Player" description="YouTube Player Using Embedded Experiences" height="400" width="700" author_email="austin@bitovi.com" author="Jane Smith" />
+	<ModulePrefs title="OpenSocial Youtub Player" description="YouTube Player Using Embedded Experiences" height="400" width="700" author_email="austin@bitovi.com" author="Jane Smith" />
 		<Content type="html">
 			<![CDATA[
 				<object width=480" height="285">
