@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs title="OpenSocial with CanJS" height="400" width="700">
+		<Require feature="dynamic-height" />
+		<Require feature="embedded-experiences"></Require>
+	</ModulePrefs>
+	<Content type="html" view="embedded,default">
+		<![CDATA[
+			<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+			<script type="text/javascript" src="http://cloud.github.com/downloads/jupiterjs/canjs/can.jquery-1.0.7.min.js"></script>
+			<script type="text/javascript">
+			jQuery(function($) {
+				$('#videos').html('MINKEY!')
+			});
+			</script>
+
+			<div id="videos"></div>
+		]]>
+	</Content>
+</Module>
