@@ -10,7 +10,14 @@
 			<script type="text/javascript" src="http://cloud.github.com/downloads/jupiterjs/canjs/can.jquery-1.0.7.min.js"></script>
 			<script type="text/javascript">
 			jQuery(function($) {
-				$('#videos').html('MINKEY!')
+
+				var Control = can.Control({
+					init:function(){
+						this.element.html('CanJS injected this!');
+					}
+				});
+
+				new Control('#videos');
 			});
 			</script>
 
