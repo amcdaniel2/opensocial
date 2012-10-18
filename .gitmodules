@@ -4,3 +4,6 @@
 [submodule "lib/can"]
 	path = lib/can
 	url = git@github.com:jupiterjs/canjs.git
+[submodule "lib/steal"]
+	path = lib/steal
+	url = git@github.com:jupiterjs/steal.git
