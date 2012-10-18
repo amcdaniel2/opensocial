@@ -5,7 +5,7 @@ OpenSocial CanJS Demo
 
 1. Open http://sandbox.opensocial2.org:8080/collabapp/index.html
 2. Click Customize and click Add Embedded Experience
-3. In the gadget field paste: `https://raw.github.com/amcdaniel2/opensocial/master/canjs.xml`
+3. In the gadget field paste: `https://raw.github.com/amcdaniel2/opensocial/master/test/canjs.xml`
 4. Click Add
 5. Note the newly injected section in the Activity Feed
 
@@ -26,3 +26,9 @@ javascript API.
 - http://opensocial2.org:8080/collabapp/index.html
 - https://sites.google.com/site/opensocialdevenv/user-guide/tutorial
 - http://code.google.com/p/opensocial-jquery/
+
+# What is?
+
+- .editorconfig see http://editorconfig.org/
+- package.json see http://wiki.commonjs.org/wiki/Packages/1.1
+- how are we versioning? http://semver.org/
