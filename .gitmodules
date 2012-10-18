@@ -1,0 +1,6 @@
+[submodule "lib/models"]
+	path = lib/models
+	url = git@github.com:cohuman/cohuman_js_models.git
+[submodule "lib/can"]
+	path = lib/can
+	url = git@github.com:jupiterjs/canjs.git
