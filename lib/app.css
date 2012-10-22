@@ -231,23 +231,22 @@ legend {
   background-size: 100% 100%;
 }
 
-.followers li{
+.followers li {
   float:left;
+  line-height:35px;
+}
+.followers li a{
   display:block;
-  width:25px;
-  height:25px;
+  width:35px;
+  height:35px;
   border:solid 1px #CCC;
   margin-right:5px;
-  line-height:25px;
-}
-.followers li.no-followers{
-  width:auto;
-  height:auto;
-  border:none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 .followers li.add{
   float:right;
-  border:none;
 }
 
 .created-date{
