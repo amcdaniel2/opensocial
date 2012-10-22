@@ -1,10 +1,72 @@
+/* =============================== Standard Styling =============================== */
 body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:14px;
 }
+
+ul, li{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+
+.right{
+  float:right;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+/* =============================== Form Styling =============================== */
 
 form{
   width: 300px;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding:15px;
+  border:solid 1px #CCC;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
 }
 
 input{
@@ -23,7 +85,10 @@ input{
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  width:100%;
+  width:95%;
+}
+input:focus{
+  outline:none;
 }
 
 progress{
@@ -33,21 +98,27 @@ progress{
 label {
   display: block;
   margin: 15px 0 5px 0;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size:11px;
+  clear:both;
 }
 
 legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 21px;
   line-height: 40px;
   color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
+  height:60px;
 }
 
-button{
+/* =============================== Button Styling =============================== */
+.btn{
   display: inline-block;
   padding: 4px 14px;
   margin-bottom: 0;
@@ -79,7 +150,7 @@ button{
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-button:hover{
+.btn:hover{
   color: #333333;
   text-decoration: none;
   background-color: #e6e6e6;
@@ -88,4 +159,107 @@ button:hover{
   -moz-transition: background-position 0.1s linear;
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
+}
+
+.btn-small {
+  padding: 3px 9px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.btn-group {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.btn-group > .btn {
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.btn-group > .btn + .btn {
+  margin-left: -1px;
+}
+
+.btn-group > .btn:first-child {
+  margin-left: 0;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.btn-group > .btn:last-child{
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.icon-add {
+  background-image: url("images/add.png");
+}
+
+/* =============================== Additional Styling =============================== */
+.profile-pic{
+  border:solid 1px #CCC;
+  height:50px;
+  width:50px;
+  float:left;
+  margin-right:8px;
+  background-size: 100% 100%;
+}
+
+.followers li{
+  float:left;
+  display:block;
+  width:25px;
+  height:25px;
+  border:solid 1px #CCC;
+  margin-right:5px;
+  line-height:25px;
+}
+.followers li.no-followers{
+  width:auto;
+  height:auto;
+  border:none;
+}
+.followers li.add{
+  float:right;
+  border:none;
+}
+
+.created-date{
+  font-size:11px;
+}
+
+.comment{
+  margin-top:15px;
+}
+
+.logo{
+  display:block;
+  margin:10px auto;
+  text-align: center;
 }

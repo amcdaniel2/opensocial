@@ -26,9 +26,3 @@ javascript API.
 - http://opensocial2.org:8080/collabapp/index.html
 - https://sites.google.com/site/opensocialdevenv/user-guide/tutorial
 - http://code.google.com/p/opensocial-jquery/
-
-# What is?
-
-- .editorconfig see http://editorconfig.org/
-- package.json see http://wiki.commonjs.org/wiki/Packages/1.1
-- how are we versioning? http://semver.org/
