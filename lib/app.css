@@ -51,22 +51,7 @@ input[type="submit"] {
 /* =============================== Form Styling =============================== */
 
 form{
-  width: 300px;
-  margin: 0 auto;
-  padding:15px;
-  border:solid 1px #CCC;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
+
 }
 
 input{
@@ -222,6 +207,31 @@ legend {
 }
 
 /* =============================== Additional Styling =============================== */
+.tasks-app{
+  width: 300px;
+  height:600px;
+  overflow-y:auto;
+  margin: 0 auto;
+  padding:15px;
+  border:solid 1px #CCC;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.loading{
+  background:url(images/loading.gif) no-repeat center center;
+}
+
 .profile-pic{
   border:solid 1px #CCC;
   height:50px;
