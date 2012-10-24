@@ -297,6 +297,9 @@ legend {
 
 .title-span{
 	float:left;
+	width:232px;
+	line-height: 28px;
+	margin-top:5px;
 }
 
 .profile-pic{

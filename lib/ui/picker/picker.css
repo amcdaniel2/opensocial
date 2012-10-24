@@ -1,0 +1,21 @@
+.ui_picker_wrap{
+	position:relative;
+}
+.ui_picker_wrap .add-email{
+	position: absolute;
+	display:none;
+	top:6px;
+	right:5px;
+	font-size:11px;
+	padding-left:15px;
+	font-weight: normal;
+	border:none;
+	background:#FFF url("../../app/images/add.png") no-repeat center left;
+}
+.ui_picker_wrap + .ui_dropdown {
+	border-top:none;
+	margin-top:0px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
