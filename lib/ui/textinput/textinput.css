@@ -1,0 +1,11 @@
+.ui_textinput{
+	border:solid 1px transparent;
+	padding:3px;
+}
+.ui_textinput:hover{
+	border:solid 1px #CCC;
+	cursor:pointer;
+}
+.ui_textinput.focused{
+	border:solid 1px transparent;
+}

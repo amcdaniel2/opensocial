@@ -295,6 +295,10 @@ legend {
   background:url(images/loading.gif) no-repeat center center;
 }
 
+.title-span{
+	float:left;
+}
+
 .profile-pic{
   border:solid 1px #CCC;
   height:50px;
