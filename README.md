@@ -1,4 +1,4 @@
-OpenSocial Cohuman Widget
+iWidget Cohuman Widget
 ==========
 
-A OpenSocial widget for the Cohman application.
+A iWidget for the Cohman application.
