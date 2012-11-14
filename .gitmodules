@@ -1,9 +1,15 @@
 [submodule "lib/can"]
 	path = lib/can
-	url = git@github.com:jupiterjs/canjs.git
+url=git@github.com:bitovi/canjs.git
 [submodule "lib/steal"]
 	path = lib/steal
-	url = git@github.com:jupiterjs/steal.git
+url=git@github.com:jupiterjs/steal.git
 [submodule "lib/app/models"]
 	path = lib/app/models
 	url = git@github.com:cohuman/cohuman_js_models.git
+[submodule "lib/messageformat"]
+	path = lib/messageformat
+	url = git://github.com/jupiterjs/messageformat.js.git
+[submodule "lib/lib/strophe"]
+	path = lib/lib/strophe
+	url = git://github.com/metajack/strophejs.git
