@@ -309,6 +309,7 @@ legend {
   float:left;
   margin-right:8px;
   background-size: 100% 100%;
+  background-color:#007acf;
 }
 
 .task-score{
@@ -328,6 +329,7 @@ legend {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: 0 0;
+  background-color:#007acf;
 }
 .followers li.add{
   float:right;
