@@ -314,6 +314,7 @@ legend {
 
 .task-score{
   margin-top:8px;
+  cursor: pointer;
 }
 
 .followers li {
@@ -334,7 +335,6 @@ legend {
 .followers li.add{
   float:right;
 }
-
 .created-date{
   font-size:11px;
 }
