@@ -342,7 +342,17 @@ legend {
 .comment{
   margin-top:15px;
 }
-
+.comments li{
+	border-bottom:solid 1px #CCC;
+	padding:8px 0;
+}
+.comments .author {
+	font-weight:bold;
+	display:block;
+}
+.comments .text{
+	font-size:.85em;
+}
 .logo{
   display:block;
   margin:10px auto;
