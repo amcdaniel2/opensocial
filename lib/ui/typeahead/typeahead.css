@@ -4,7 +4,7 @@
 	border-radius: 4px 4px 0 0;
 }
 
-.ui_typeahead + .ui_dropdown {
+.typeahead-menu.ui_dropdown {
 	border-top:none;
 	margin-top:0px;
 	-webkit-border-radius: 0 0 4px 4px;
@@ -12,7 +12,7 @@
 	border-radius: 0 0 4px 4px;
 }
 
-.ui_dropdown .group[disabled]{
+.typeahead-menu .group[disabled]{
 	padding-left:5px;
 	color:#666;
 	opacity: 1;

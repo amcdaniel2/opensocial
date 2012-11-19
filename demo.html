@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cohuman</title>
+    </head>
+    <body>
+
+    	<style>
+    		body{
+    			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 				font-size:14px;
+    		}
+    		h1{
+    			width:600px;
+    			margin:0 auto;
+    			color:#666;
+    			font-size:20px;
+    		}
+    		a {
+			  color: #0088cc;
+			  text-decoration: none;
+			}
+			input{
+			  display: inline-block;
+			  height: 20px;
+			  padding: 4px 6px;
+			  margin-bottom: 9px;
+			  font-size: 14px;
+			  line-height: 20px;
+			  color: #555555;
+			  -webkit-border-radius: 3px;
+			  -moz-border-radius: 3px;
+			  border-radius: 3px;
+			  background-color: #ffffff;
+			  border: 1px solid #cccccc;
+			  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			  width:95%;
+			}
+    		p{
+    			margin:3px 0 10px 0;
+    			padding:0;
+    		}
+    		.statuses{
+    			margin:10px auto;
+    			width:600px;
+    			list-style:none;
+    			padding:0;
+    			border:solid 1px #CCC;
+    			border-left:none;
+    			border-right:none;
+    		}
+    		.statuses li {
+    			margin:10px 0;
+    			list-style:none;
+    			padding:10px;
+    			border-bottom:solid 1px #CCC
+    		}
+    		h3 {
+    			padding:0;
+    			margin:0;
+    			display:block;
+    			font-size:14px;
+    			color:#0088cc;
+    		}
+
+    	</style>
+
+    	<h1>Status Updates</h1>
+    	<ul class="statuses">
+    		<li style="padding-top:0">
+    			<p>View status updates from your network, people, and communities you are following.</p>
+    			<input type="text" placeholder="What are you working on right now?" />
+    		</li>
+    		<li>
+    			<h3>Mike Duensign</h1>
+    			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum metus ac metus faucibus gravida. Quisque id nulla est. Nunc consequat felis auctor risus facilisis aliquet. Mauris a fermentum nisi. Praesent vitae nisl at ipsum imperdiet iaculis at vel tellus. Nam nec tellus at dui pellentesque pulvinar ac at justo.
+    		</li>
+    		<li>
+    			<h3>Puerre Dumont</h1>
+    			At the top of this page you can see the tab for Maps. In Maps you can brainstorm and plan your projects and tasks before sending them here to be assigned and tracked. At the top of this page you can see the tab for Maps. In Maps you can brainstorm and plan your projects and tasks before sending them here to be <a id="29389" class="link" href="#">assigned</a> and tracked.
+    		</li>
+    		<li>
+    			<h3>Mike Duensign</h1>
+    			Integer posuere placerat enim eget facilisis. Phasellus id enim at massa facilisis gravida ac ullamcorper diam. Nunc aliquam interdum libero, in commodo nisl malesuada at. Aenean euismod tellus in lorem tempus convallis. Pellentesque in orci ut lectus placerat imperdie. Vestibulum at purus eu sapien ultricies aliquam.
+    		</li>
+    		<li>
+    			<h3>Puerre Dumont</h1>
+    			Quisque ac est risus, sed rhoncus felis. Pellentesque nibh arcu, iaculis at facilisis et, auctor vel mi. Duis faucibus tellus in odio sollicitudin quis adipiscing dui viverra.
+    		</li>
+    		<li style="border-bottom:none;">
+    			<h3>Mike Duensign</h1>
+    			Maecenas porttitor venenatis dolor sed lacinia. Nulla pharetra laoreet ligula vel placerat. In vehicula magna vel velit placerat vel rutrum mi ornare. Phasellus id dui ligula. Phasellus in iaculis leo. Nullam blandit volutpat lacus a pharetra. Etiam interdum pretium euismod.
+    		</li>
+    	</ul>
+
+    	<script src="lib/steal/steal.js"></script>
+
+    	<script type="text/javascript">
+    		steal('app', function(){
+	    		var os, timeout;
+	    		$('.link').mouseenter(function(){
+	    			var link = $(this);
+	    			clearTimeout(timeout);
+	    			timeout = setTimeout(function(){
+	    				os = new OpenSocial(link, { id: link.attr('id') });
+	    			}, 100)
+	    		}).mouseleave(function(){
+	    			clearTimeout(timeout);
+	    		});
+    		});
+    	</script>
+
+
+    </body>
+</html>

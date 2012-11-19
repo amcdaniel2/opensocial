@@ -1,59 +1,57 @@
 /* =============================== Standard Styling =============================== */
-body{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size:14px;
-}
-
-ul, li{
+.tasks-app ul,
+.tasks-app li{
   padding:0;
   margin:0;
   list-style: none;
+  width:auto;
+  border:none;
 }
 
-a {
+.tasks-app a {
   color: #0088cc;
   text-decoration: none;
 }
 
-.right{
+.tasks-app .right{
   float:right;
 }
-.left{
+.tasks-app .left{
   float:left;
 }
 
-.clearfix {
+.tasks-app .clearfix {
   *zoom: 1;
 }
-.clearfix:before,
-.clearfix:after {
+.tasks-app .clearfix:before,
+.tasks-app .clearfix:after {
   display: table;
   content: "";
 }
-.clearfix:after {
+.tasks-app .clearfix:after {
   clear: both;
 }
 
-button,
-input,
-select,
-textarea {
+.tasks-app button,
+.tasks-app input,
+.tasks-app select,
+.tasks-app textarea {
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
 }
 
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+.tasks-app button,
+.tasks-app input[type="button"],
+.tasks-app input[type="reset"],
+.tasks-app input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
 }
 
 /* =============================== Form Styling =============================== */
 
-input{
+.tasks-app input{
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
@@ -71,15 +69,11 @@ input{
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   width:95%;
 }
-input:focus{
+.tasks-app input:focus{
   outline:none;
 }
 
-progress{
-  width:100%;
-}
-
-label {
+.tasks-app label {
   display: block;
   margin: 15px 0 5px 0;
   text-transform: uppercase;
@@ -88,7 +82,7 @@ label {
   clear:both;
 }
 
-legend {
+.tasks-app legend {
   display: block;
   width: 100%;
   padding: 0;
@@ -102,7 +96,7 @@ legend {
 }
 
 /* =============================== Button Styling =============================== */
-.btn{
+.tasks-app .btn{
   display: inline-block;
   padding: 4px 14px;
   margin-bottom: 0;
@@ -134,7 +128,7 @@ legend {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.btn:hover{
+.tasks-app .btn:hover{
   color: #333333;
   text-decoration: none;
   background-color: #e6e6e6;
@@ -145,13 +139,13 @@ legend {
   transition: background-position 0.1s linear;
 }
 
-.btn-small {
+.tasks-app .btn-small {
   padding: 3px 9px;
   font-size: 12px;
   line-height: 18px;
 }
 
-.btn-group {
+.tasks-app .btn-group {
   position: relative;
   font-size: 0;
   white-space: nowrap;
@@ -159,18 +153,18 @@ legend {
   display: inline-block;
 }
 
-.btn-group > .btn {
+.tasks-app .btn-group > .btn {
   position: relative;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
 
-.btn-group > .btn + .btn {
+.tasks-app .btn-group > .btn + .btn {
   margin-left: -1px;
 }
 
-.btn-group > .btn:first-child {
+.tasks-app .btn-group > .btn:first-child {
   margin-left: 0;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -180,7 +174,7 @@ legend {
   -moz-border-radius-topleft: 4px;
 }
 
-.btn-group > .btn:last-child{
+.tasks-app .btn-group > .btn:last-child{
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
@@ -189,8 +183,8 @@ legend {
   -moz-border-radius-bottomright: 4px;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+.tasks-app [class^="icon-"],
+.tasks-app [class*=" icon-"] {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -201,11 +195,11 @@ legend {
   background-repeat: no-repeat;
 }
 
-.icon-add {
+.tasks-app .icon-add {
   background-image: url("images/add.png");
 }
 
-.badge{
+.tasks-app .badge{
   padding: 1px 4px 2px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -221,7 +215,7 @@ legend {
 }
 
 /* =============================== Progress Styling =============================== */
-.progress {
+.tasks-app .progress {
   height: 20px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -241,7 +235,7 @@ legend {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.progress .bar {
+.tasks-app .progress .bar {
   float: left;
   width: 0;
   height: 100%;
@@ -271,8 +265,11 @@ legend {
 
 /* =============================== Additional Styling =============================== */
 .tasks-app{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:14px;
   width: 300px;
   min-height:200px;
+  max-height:500px;
   overflow-y:auto;
   margin: 0 auto;
   padding:15px;
@@ -291,18 +288,18 @@ legend {
   background-clip: padding-box;
 }
 
-.loading{
-  background:url(images/loading.gif) no-repeat center center;
+.tasks-app.loading{
+  background:#FFF url(images/loading.gif) no-repeat center center;
 }
 
-.title-span{
+.tasks-app .title-span{
 	float:left;
-	width:232px;
+	width:217px;
 	line-height: 28px;
 	margin-top:5px;
 }
 
-.profile-pic{
+.tasks-app .profile-pic{
   border:solid 1px #CCC;
   height:50px;
   width:50px;
@@ -312,16 +309,16 @@ legend {
   background-color:#007acf;
 }
 
-.task-score{
+.tasks-app .task-score{
   margin-top:8px;
   cursor: pointer;
 }
 
-.followers li {
+.tasks-app .followers li {
   float:left;
   line-height:35px;
 }
-.followers li a{
+.tasks-app .followers li a{
   display:block;
   width:35px;
   height:35px;
@@ -332,28 +329,28 @@ legend {
   background-position: 0 0;
   background-color:#007acf;
 }
-.followers li.add{
+.tasks-app .followers li.add{
   float:right;
 }
-.created-date{
+.tasks-app .created-date{
   font-size:11px;
 }
 
-.comment{
+.tasks-app .comment{
   margin-top:15px;
 }
-.comments li{
+.tasks-app .comments li{
 	border-bottom:solid 1px #CCC;
 	padding:8px 0;
 }
-.comments .author {
+.tasks-app .comments .author {
 	font-weight:bold;
 	display:block;
 }
-.comments .text{
+.tasks-app .comments .text{
 	font-size:.85em;
 }
-.logo{
+.tasks-app .logo{
   display:block;
   margin:10px auto;
   text-align: center;

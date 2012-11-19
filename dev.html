@@ -7,9 +7,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Cohuman</title>
-        <link rel="stylesheet" href="lib/app/app.css">
     </head>
     <body>
-        <script src="lib/steal/steal.js?app"></script>
+
+    	<script src="lib/steal/steal.js"></script>
+    	<script type="text/javascript">
+    		steal('app', function(){
+	    		new OpenSocial(document.body);
+    		});
+    	</script>
+
     </body>
 </html>
