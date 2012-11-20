@@ -7,6 +7,7 @@
 .typeahead-menu.ui_dropdown {
 	border-top:none;
 	margin-top:0px;
+	max-height:200px;
 	-webkit-border-radius: 0 0 4px 4px;
 	-moz-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
