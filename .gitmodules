@@ -7,9 +7,3 @@ url=git@github.com:jupiterjs/steal.git
 [submodule "lib/app/models"]
 	path = lib/app/models
 	url = git@github.com:cohuman/cohuman_js_models.git
-[submodule "lib/messageformat"]
-	path = lib/messageformat
-	url = git://github.com/jupiterjs/messageformat.js.git
-[submodule "lib/lib/strophe"]
-	path = lib/lib/strophe
-	url = git://github.com/metajack/strophejs.git

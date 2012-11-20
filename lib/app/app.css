@@ -332,6 +332,12 @@
 .tasks-wrapper .followers li.add{
   float:right;
 }
+.tasks-wrapper .input-append .ui_picker_wrap{
+	display:none;
+}
+.tasks-wrapper .input-append .ui_picker_wrap input{
+	width:273px;
+}
 .tasks-wrapper .created-date{
   font-size:11px;
 }
