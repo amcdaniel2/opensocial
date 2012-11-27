@@ -12,6 +12,7 @@
 
 			<script type="text/javascript">
 				gadgets.util.registerOnLoadHandler(function(){
+					steal.executed("lib/app/production.css");
 					steal('app', function(){
 	    				new OpenSocial("#ow");
     				});
