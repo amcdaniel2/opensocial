@@ -21,7 +21,11 @@
 			<script type="text/javascript">
 				gadgets.util.registerOnLoadHandler(function(){
 					steal('app', function(){
-	    				new OpenSocial(document.body);
+						var key = opensocial.data.getDataContext();
+						debugger;
+	    				new OpenSocial(document.body,{
+	    					id: key
+	    				});
     				});
 				})
     		</script>
