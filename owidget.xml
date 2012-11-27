@@ -6,13 +6,17 @@
 	</ModulePrefs>
 	<Content type="html" view="embedded,default">
 		<![CDATA[
+			<script type='text/javascript'>
+    			window.steal = { env: "production", loadDev: false }
+    		</script>
+
   			<script type="text/javascript" src="https://raw.github.com/bitovi/steal/master/steal.production.js"></script>
 			<script type="text/javascript" src="https://raw.github.com/amcdaniel2/opensocial/master/lib/app/production.js"></script>
 			<link href="https://raw.github.com/amcdaniel2/opensocial/master/lib/app/production.css" media="screen" rel="stylesheet" type="text/css" />
 
 			<script type="text/javascript">
 				gadgets.util.registerOnLoadHandler(function(){
-					steal.executed("lib/app/production.css");
+					steal.executed("app/production.css");
 					steal('app', function(){
 	    				new OpenSocial("#ow");
     				});
