@@ -11,8 +11,10 @@
 			<link href="https://raw.github.com/amcdaniel2/opensocial/master/lib/app/production.css" media="screen" rel="stylesheet" type="text/css" />
 
 			<script type="text/javascript">
-    			steal('app', function(){
-	    			new OpenSocial("#ow");
+				jQuery(function($) {
+    				steal('app', function(){
+	    				new OpenSocial("#ow");
+    				});
     			});
     		</script>
 
