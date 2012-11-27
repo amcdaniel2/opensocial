@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="Mindjet Tasks for IBM">
+	<ModulePrefs title="Mindjet Tasks for IBM" height="400" width="300">>
 		<Require feature="dynamic-height" />
 		<Require feature="embedded-experiences"></Require>
 	</ModulePrefs>
@@ -22,12 +22,10 @@
 			<script type="text/javascript">
 				gadgets.util.registerOnLoadHandler(function(){
 					steal('app', function(){
-	    				new OpenSocial("#ow");
+	    				new OpenSocial(document.body);
     				});
 				})
     		</script>
-
-			<div id="ow"></div>
 		]]>
 	</Content>
 </Module>

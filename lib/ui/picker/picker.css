@@ -10,7 +10,7 @@
 	padding-left:15px;
 	font-weight: normal;
 	border:none;
-	background:#FFF url("../../app/images/add.png") no-repeat center left;
+	background:#FFF url("https://raw.github.com/amcdaniel2/opensocial/master/lib/app/images/add.png") no-repeat center left;
 }
 .ui_picker_wrap + .ui_dropdown {
 	border-top:none;
