@@ -11,11 +11,11 @@
 			<link href="https://raw.github.com/amcdaniel2/opensocial/master/lib/app/production.css" media="screen" rel="stylesheet" type="text/css" />
 
 			<script type="text/javascript">
-				jQuery(function($) {
-    				steal('app', function(){
+				gadgets.util.registerOnLoadHandler(function(){
+					steal('app', function(){
 	    				new OpenSocial("#ow");
     				});
-    			});
+				})
     		</script>
 
 			<div id="ow"></div>
