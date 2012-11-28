@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="Mindjet Tasks for IBM" height="450" width="300">>
+	<ModulePrefs title="Mindjet Tasks for IBM" width="300">
 		<Require feature="embedded-experiences"></Require>
 	</ModulePrefs>
 	<Content type="html" view="embedded,default">
