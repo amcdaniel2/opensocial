@@ -5,12 +5,12 @@ A OpenSocial for the Cohman application.
 
 http://docs.opensocial.org/display/OSD/Embedded+Experiences
 
-## Running
+## Running Locally
 
 1. In cmd run: `open -a Google\ Chrome --args --disable-web-security`
 2. Open `dev.html` or `demo.html`
 
-## Demo
+## Demo in Sandbox
 
 1. Open `http://sandbox.opensocial2.org:8080/collabapp/index.html`
 2. Click 'Customize'
