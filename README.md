@@ -1,7 +1,9 @@
-iWidget Cohuman Widget
+OpenSocial Cohuman Widget
 ==========
 
-A iWidget for the Cohman application.
+A OpenSocial for the Cohman application.
+
+http://docs.opensocial.org/display/OSD/Embedded+Experiences
 
 ## Running
 
