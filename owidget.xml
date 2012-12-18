@@ -2,6 +2,7 @@
 <Module>
 	<ModulePrefs title="Mindjet Tasks for IBM" width="300">
 		<Require feature="embedded-experiences"></Require>
+		<Require feature="dynamic-height"></Require>
 	</ModulePrefs>
 	<Content type="html" view="embedded,default">
 		<![CDATA[
