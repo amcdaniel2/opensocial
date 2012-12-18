@@ -23,7 +23,7 @@
 				gadgets.util.registerOnLoadHandler(function(){
 					steal('app', function(){
 	    				new OpenSocial(document.body, opensocial.data.getDataContext().getDataSet('org.opensocial.ee.context'));
-	    				gadgets.window.adjustHeight();
+	    				gadgets.window.adjustHeight(800);
     				});
 				});
     		</script>
