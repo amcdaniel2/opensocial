@@ -3,12 +3,12 @@ OpenSocial Cohuman Widget
 
 A OpenSocial for the Cohman application.
 
-http://docs.opensocial.org/display/OSD/Embedded+Experiences
+http://screencast.com/t/vLARwjsCVP5M
 
 ## Running Locally
 
 1. In cmd run: `open -a Google\ Chrome --args --disable-web-security`
-2. Open `dev.html` or `demo.html`
+2. Open `dev.html`
 
 ## Demo in Sandbox
 
@@ -21,3 +21,7 @@ http://docs.opensocial.org/display/OSD/Embedded+Experiences
 7. Click add to 'Activity Stream'
 8. Click Add
 9. Notice new status feed.  Click the logo.
+
+## References
+
+http://docs.opensocial.org/display/OSD/Embedded+Experiences
