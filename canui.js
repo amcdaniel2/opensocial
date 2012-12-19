@@ -492,11 +492,11 @@ filler = $.fn.fill = function( parent ) {
 
 	this.each(function(){
 		// Attach to the `resize` event
-		parent.on('resize', $(this), filler.parentResize);
+		parent.bind('resize', $(this), filler.parentResize);
 
 		// unbind on destroy
 		filler.bind('destroyed', $(this), function( ev ) {
-			parent.undelegate('resize', filler.parentResize)
+			parent.unbind('resize', filler.parentResize)
 		});
 	});
 
