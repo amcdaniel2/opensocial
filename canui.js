@@ -301,270 +301,277 @@ height:
 })
 
 return $;
-})(module["jquery"], module["jquery/dom/styles/styles.js"]);
-// ## canui/fills/fills.js
+})(module["jquery"], module["jquery/dom/styles/styles.js"]);// ## jquery/event/reverse/reverse.js
 
-module['canui/fills/fills.js'] = (function( $ ) {
-	
-	
-	function T(){
-	var a=[];						//Holds the timer stack
-	return{
-		s:function(n){					//Starts a new timer, pass in 'n' as the name of the timer
-			a.unshift({n:n,t:new Date()})		//Puts the timer on top of the stack
-		},
-		e:function(l){					//Ends the most recently started timer
-			l=a.shift();				//Gets the timer from top of the stack
-			return((new Date()-l.t)+'ms|'+l.n)	//Returns elapsed milliseconds of named timer
-		}
-	}
-}
-	var Timer = T();
-	
-	
-	//evil things we should ignore
-	var matches = /script|td/,
+module['jquery/event/reverse/reverse.js'] = (function($) {
+	$.event.reverse = function(name, attributes) {
+		var bound = $(),
+			count = 0;
 
-		// if we are trying to fill the page
-		isThePage = function( el ) {
-			return el === document || el === document.documentElement || el === window || el === document.body
-		},
-		//if something lets margins bleed through
-		bleeder = function( el ) {
-			if ( el[0] == window ) {
-				return false;
-			}
-			var styles = el.styles('borderBottomWidth', 'paddingBottom')
-			return !parseInt(styles.borderBottomWidth) && !parseInt(styles.paddingBottom)
-		},
-		//gets the bottom of this element
-		bottom = function( el, offset ) {
-			//where offsetTop starts
-			return el.outerHeight() + offset(el);
-		}
-		pageOffset = function( el ) {
-			return el.offset().top
-		},
-		offsetTop = function( el ) {
-			return el[0].offsetTop;
-		},
-		inFloat = function( el, parent ) {
-			while ( el && el != parent ) {
-				var flt = $(el).css('float')
-				if ( flt == 'left' || flt == 'right' ) {
-					return flt;
+		$.event.special[name] = {
+			setup: function() {
+				// add and sort the resizers array
+				// don't add window because it can't be compared easily
+				if ( this !== window ) {
+					bound.push(this);
+					$.unique(bound);
 				}
-				el = el.parentNode
-			}
-		},
-		/**
-		 * @function jQuery.fn.fills
-		 * @parent jQuery.fills
-		 * @test jquery/dom/fills/funcunit.html
-		 * @plugin jquery/dom/fills
-		 *
-		 * Fills a parent element's height with the current element.
-		 * This is extremely useful for complex layout, especially when you want to account for line-wrapping.
-		 *
-		 * ## Basic Example
-		 *
-		 * If you have the following html:
-		 *
-		 *     <div id='box'>
-		 * 	    <p>I am a long heading.</p>
-		 * 	    <div id='child'>I'm a child.</div>
-		 *     </div>
-		 *
-		 * The follow makes `#child` fill up `#box`:
-		 *
-		 *     $('#child').can_ui_layout_fill("#box")
-		 *
-		 * ## Limitations
-		 *
-		 * Fill currently does not well with:
-		 *
-		 *   - Bleeding margins - Where margins leak through parent elements
-		 *     because the parent elements do not have a padding or border.
-		 *
-		 *   - Tables - You shouldn't be using tables to do layout anyway.
-		 *
-		 *   - Floated Elements - the child element has `float: left` or `float: right`
-		 *
-		 *
-		 * @param {HTMLElement|selector|Object} [parent] the parent element
-		 * to fill, defaults to the element's parent.
-		 *
-		 * The following fills the parent to `#child`:
-		 *
-		 *     $('#child').fills()
-		 *
-		 * A selector can also be pased.  This selector is passed to jQuery's
-		 * closet method.  The following matches the first `#parent` element that
-		 * is a parentNode of `#child`:
-		 *
-		 *     $('#child').fills("#parent")
-		 *
-		 * An element or window can also be passed.  The following will make
-		 * `#child` big enough so the entire window is filled:
-		 *
-		 *      $('#child').fills(window)
-		 *
-		 * If you pass an object, the following options are available:
-		 *
-		 * - __parent__ - The parent element selector or jQuery object
-		 * - __className__ - A class name to add to the element that fills
-		 * - __all__ - Reset the parents height when resizing
-		 *
-		 * @return {jQuery} the original jQuery collection for chaining.
-		 */
-		filler = $.fn.fills = function( parent ) {
-			var options = parent;
-			options || (options = {});
-			if(typeof options == 'string'){
-				options = this.closest(options)
-			}
-			if ( options.jquery || options.nodeName ) {
-				options = {parent: options };
-			}
-			// Set the parent
-			options.parent || (options.parent = window);
-			options.parent = $(options.parent)
+				// returns false if the window
+				return this !== window;
+			},
+			teardown: function() {
+				// we shouldn't have to sort
+				bound = bound.not(this);
+				// returns false if the window
+				return this !== window;
+			},
+			add: function( handleObj ) {
+				var origHandler = handleObj.handler;
+				handleObj.origHandler = origHandler;
 
-			// setup stuff on every element
-			if(options.className) {
-				this.addClass(options.className)
-			}
-
-			var thePage = isThePage(options.parent[0]);
-			
-			if ( thePage ) {
-				options.parent = $(window)
-			}
-
-			this.each(function(){
-				var evData = {
-					filler: $(this),
-					inFloat: inFloat(this, thePage ? document.body : options.parent[0]),
-					options: options
-				},
-				cb = function() {
-					filler.parentResize.apply(this, arguments)
-				}
-				// Attach to the `resize` event
-				$(options.parent).bind('resize', evData, cb);
-
-				$(this).bind('destroyed', evData, function( ev ) {
-					if(options.className) {
-						$(ev.target).removeClass(options.className)
+				handleObj.handler = function( ev, data ) {
+					var isWindow = this === window;
+					if(attributes && attributes.handler) {
+						var result = attributes.handler.apply(this, arguments);
+						if(result === true) {
+							return;
+						}
 					}
-					$(options.parent).unbind('resize', cb)
-				});
-				
-			});
 
-			// resize to get things going
-			var func = function() {
-				options.parent.resize();
-			}
+					// if this is the first handler for this event ...
+					if ( count === 0 ) {
+						// prevent others from doing what we are about to do
+						count++;
+						var where = data === false ? ev.target : this
 
-			if ( $.isReady ) {
-				func();
-			} else {
-				$(func)
+						// trigger all this element's handlers
+						$.event.handle.call(where, ev, data);
+						if ( ev.isPropagationStopped() ) {
+							count--;
+							return;
+						}
+
+						// get all other elements within this element that listen to move
+						// and trigger their resize events
+						var index = bound.index(this),
+							length = bound.length,
+							child, sub;
+
+						// if index == -1 it's the window
+						while (++index < length && (child = bound[index]) && (isWindow || $.contains(where, child)) ) {
+
+							// call the event
+							$.event.handle.call(child, ev, data);
+
+							if ( ev.isPropagationStopped() ) {
+								// move index until the item is not in the current child
+								while (++index < length && (sub = bound[index]) ) {
+									if (!$.contains(child, sub) ) {
+										// set index back one
+										index--;
+										break
+									}
+								}
+							}
+						}
+
+						// prevent others from responding
+						ev.stopImmediatePropagation();
+						count--;
+					} else {
+						handleObj.origHandler.call(this, ev, data);
+					}
+				}
 			}
-			return this;
 		};
 
+		// automatically bind on these
+		$([document, window]).bind(name, function() {});
 
-	$.extend(filler, {
-		parentResize : function( ev ) {
-			Timer.s('Timre started')
-			if (ev.data.filler.is(':hidden')) {
-				return;
-			}
-			
-			var parent = $(this),
-				isWindow = this == window,
-				container = (isWindow ? $(document.body) : parent),
+		return $.event.special[name];
+	}
 
-				//if the parent bleeds margins, we don't care what the last element's margin is
-				isBleeder = bleeder(parent),
-				children = container.children().filter(function() {
-					if ( matches.test(this.nodeName.toLowerCase()) ) {
-						return false;
-					}
+	return $;
+})(module["jquery"]);// ## jquery/event/resize/resize.js
 
-					var get = $.styles(this, ['position', 'display']);
-					return get.position !== "absolute" && get.position !== "fixed"
-						&& get.display !== "none" && !jQuery.expr.filters.hidden(this)
-				}),
-				last = children.eq(-1),
-				first,
-				parentHeight = parent.height() - (isWindow ? parseInt(container.css('marginBottom'), 10) || 0 : 0),
-				currentSize;
-			var div = '<div style="height: 0px; line-height:0px;overflow:hidden;' + (ev.data.inFloat ? 'clear: both' : '') + ';"/>'
+module['jquery/event/resize/resize.js'] = (function($) {
+	var
+		// bind on the window window resizes to happen
+		win = $(window),
+		windowWidth = 0,
+		windowHeight = 0,
+		timer;
 
-			if ( isBleeder ) {
-				//temporarily add a small div to use to figure out the 'bleed-through' margin
-				//of the last element
-				last = $(div).appendTo(container);
-				
-			}
+	$(function() {
+		windowWidth = win.width();
+		windowHeight = win.height();
+	});
 
-			//for performance, we want to figure out the currently used height of the parent element
-			// as quick as possible
-			// we can use either offsetTop or offset depending ...
-			if ( last && last.length > 0 ) {
-				if ( last.offsetParent()[0] === container[0] ) {
+	$.event.reverse('resize', {
+		handler : function(ev, data) {
+			var isWindow = this === window;
 
-					currentSize = last[0].offsetTop + last.outerHeight();
-				} else if (last.offsetParent()[0] === container.offsetParent()[0]) {
-					// add pos abs for IE7 but
-					// might need to adjust for the addition of first's hheight
-					var curLast =last[0].offsetTop;
-					first = $(div).prependTo(container);
-					
-					currentSize = ( curLast + last.outerHeight() ) - first[0].offsetTop;
-					
-					first.remove();
-				} else {
-					// add first so we know where to start from .. do not bleed in this case
-					first = $(div).prependTo(container);
+			// if we are the window and a real resize has happened
+			// then we check if the dimensions actually changed
+			// if they did, we will wait a brief timeout and
+			// trigger resize on the window
+			// this is for IE, to prevent window resize 'infinate' loop issues
+			if ( isWindow && ev.originalEvent ) {
+				var width = win.width(),
+					height = win.height();
 
-					currentSize = ( last.offset().top + last.outerHeight() ) - first.offset().top;
-					first.remove();
+
+				if ((width != windowWidth || height != windowHeight)) {
+					//update the new dimensions
+					windowWidth = width;
+					windowHeight = height;
+					clearTimeout(timer)
+					timer = setTimeout(function() {
+						win.trigger("resize");
+					}, 1);
+
 				}
+				return true;
 			}
-
-			// what the difference between the parent height and what we are going to take up is
-			var delta = parentHeight - currentSize,
-				// the current height of the object
-				fillerHeight = ev.data.filler.height();
-
-			//adjust the height
-			if ( ev.data.options.all ) {
-				// we don't care about anything else, we are likely absolutely positioned
-				// we need to fill the parent width
-				// temporarily collapse, then expand
-				ev.data.filler.height(0).width(0);
-				var parentWidth = parent.width(),
-					parentHeight = parent.height();
-
-				ev.data.filler.outerHeight(parentHeight);
-				ev.data.filler.outerWidth(parentWidth);
-			} else {
-				ev.data.filler.height(fillerHeight + delta)
-			}
-
-			//remove the temporary element
-			if ( isBleeder ) {
-				last.remove();
-			}
-			
-			console.log(Timer.e());
 		}
 	});
-})(module["jquery"], module["jquery/dom/dimensions/dimensions.js"]);
+
+	return $;
+})(module["jquery/event/reverse/reverse.js"]);// ## canui/fills/fills.js
+
+module['canui/fills/fills.js'] = (function( $ ) {
+// evil things we should ignore
+var matches = /script|td/,
+	// jquery.outerHeight is SLOW
+	outerHeight = function(elm){
+		var styles = $.styles(elm[0], ['paddingTop', 
+									   'paddingBottom', 
+									   'borderTopWidth', 
+									   'borderBottomWidth', 
+									   'marginTop', 
+									   'marginBottom']);
+		
+		return elm.height() + 
+				parseInt(styles.paddingTop || 0) + 
+				parseInt(styles.paddingBottom || 0) + 
+				parseInt(styles.borderTopWidth || 0) + 
+				parseInt(styles.borderBottomWidth || 0) + 
+				parseInt(styles.marginTop || 0) + 
+				parseInt(styles.marginBottom || 0);
+	},
+
+/**
+ *
+ * # Parents
+ *
+ * // Default -> this.parent()
+ * $('.dom').fill();
+ *
+ * // jQuery Selectors
+ * $('.dom').fill('.myParent');
+ * 
+ * // DOM nodes
+ * $('.dom').fill(getElementById('dom'))
+ *
+ * // jQuery objs
+ * $('.dom').fill($('moo:eq(1)'))
+ * 
+ */
+filler = $.fn.fill = function( parent ) {
+	if(!parent){
+		// default to parent
+		var p = this.parent();
+		parent = p[0] === document.body ? $(window) : p;
+	} else if(typeof parent == 'string'){
+		// find via selector
+		parent = this.closest(parent)
+	} else if(parent.nodeName ) {
+		// wrap everything
+		parent = $(parent);
+	}
+
+	this.each(function(){
+		// Attach to the `resize` event
+		parent.bind('resize', $(this), filler.parentResize);
+
+		// unbind on destroy
+		filler.bind('destroyed', $(this), function( ev ) {
+			parent.unbind('resize', filler.parentResize)
+		});
+	});
+
+	// resize to get things going
+	$(parent.resize());
+
+	return this;
+};
+
+$.extend(filler, {
+	parentResize : function( ev ) {
+		var fille = ev.data;
+
+		// if the window is hidden, return and
+		// stop the propagation of anymore
+		//if (fille.is(':hidden')) {
+		//	ev.stopPropagation();
+		//	return;
+		//}
+
+		var parent = $(this),
+			height = parent.height();
+
+		// check yo cache, since we are going down if the
+		// parent was resize but we get to a elm that wasn't
+		// then we can stop because its not going to get the 
+		// resize event.
+		if(fille.data('prev') == height){
+			//ev.stopPropagation();
+			return;
+		}
+
+		// cache the current
+		fille.data('prev', height);
+
+		var isWindow = this == window,
+			container = (isWindow ? $(document.body) : parent),
+			children = container.children().filter(function() {
+				if ( matches.test(this.nodeName.toLowerCase()) ) {
+					return false;
+				}
+
+				// Use jquery/dom/styles for faster CSS aquistion
+				// http://jsfiddle.net/donejs/6CcaG/light/
+				var styles = $.styles(this, ['position', 'display']);
+				return styles.position !== "absolute" && styles.position !== "fixed"
+					&& styles.display !== "none" && !jQuery.expr.filters.hidden(this)
+			}),
+			last = children.eq(-1), cur;
+
+		if (last.length) {
+			var offsetParent = last.offsetParent()[0],
+				lastOffsetTop = last[0].offsetTop,
+				lastOuter = outerHeight(last);
+
+			if(offsetParent === container[0]){
+				cur = lastOffsetTop + lastOuter;
+			} else if(offsetParent === container.offsetParent()[0]){
+				var div = '<div style="height:0;line-height:0px;overflow:hidden;"/>',
+					first = $(div).prependTo(container);	
+
+				cur = (lastOffsetTop + lastOuter) - first[0].offsetTop;
+				first.remove();
+			}
+		}
+
+		// what the difference between the parent height and what we are going to take up is
+		// the current height of the object
+		var delta = height - cur,
+			fillerHeight = fille.height();
+
+		fille.height(fillerHeight + delta + "px")
+	}
+});
+})(module["jquery"], module["jquery/dom/dimensions/dimensions.js"], module["jquery/event/resize/resize.js"]);
 
 window.define = module._define;
 

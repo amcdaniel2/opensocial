@@ -3,7 +3,7 @@
 url=git@github.com:bitovi/canjs.git
 [submodule "lib/steal"]
 	path = lib/steal
-url=git@github.com:jupiterjs/steal.git
+url=git@github.com:bitovi/steal.git
 [submodule "lib/app/models"]
 	path = lib/app/models
 	url = git@github.com:cohuman/cohuman_js_models.git
