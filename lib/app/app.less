@@ -223,6 +223,20 @@
 		background-color: #999999;
 	}
 
+	.close{
+		float:right;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 20px;
+		padding:2px;
+		color: red;
+		text-shadow: 0 1px 0 #ffffff;
+		padding: 0;
+		cursor: pointer;
+		background: #000;
+		border: 0;
+		-webkit-appearance: none;
+	}
 
 	/* =============================== Progress Styling =============================== */
 
@@ -358,6 +372,14 @@
 
 			.add-btn{
 				float:right;
+			}
+
+			button{
+				display:none;
+			}
+
+			&:hover button{
+				display: block;
 			}
 		}
 	}
