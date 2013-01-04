@@ -22,7 +22,6 @@
 			<script type="text/javascript">
 				gadgets.util.registerOnLoadHandler(function(){
 					steal('app', function(){
-						debugger;
 	    				new OpenSocial(document.body, opensocial.data.getDataContext().getDataSet('org.opensocial.ee.context'));
     				});
 				});
