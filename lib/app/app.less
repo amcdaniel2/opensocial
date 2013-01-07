@@ -103,6 +103,16 @@
 		height:60px;
 	}
 
+	input[disabled],
+	select[disabled],
+	textarea[disabled],
+	input[readonly],
+	select[readonly],
+	textarea[readonly] {
+		cursor: not-allowed;
+		background-color: #eee;
+	}
+
 	/* =============================== Button Styling =============================== */
 
 	.btn{
@@ -236,6 +246,26 @@
 		background: #000;
 		border: 0;
 		-webkit-appearance: none;
+	}
+
+	.btn.disabled,
+	.btn[disabled] {
+		cursor: default;
+		background-image: none;
+		opacity: 0.65;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+
+	.btn:hover,
+	.btn:active,
+	.btn.active,
+	.btn.disabled,
+	.btn[disabled] {
+		color: #333333;
+		background-color: #e6e6e6;
 	}
 
 	/* =============================== Progress Styling =============================== */

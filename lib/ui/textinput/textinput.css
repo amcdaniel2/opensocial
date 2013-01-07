@@ -15,3 +15,7 @@
 .ui_textinput.focused{
 	border:solid 1px transparent;
 }
+.ui_textinput.disabled{
+	border:none;
+	cursor: not-allowed;
+}
